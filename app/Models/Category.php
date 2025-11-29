@@ -9,4 +9,9 @@ class Category extends Model
     protected $fillable = [
         'title',
     ];
+
+    public function FeatureLists()
+    {
+        return $this->hasMany(FeatureList::class, 'category_id', 'id');
+    }
 }

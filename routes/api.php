@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\ExtensionSyncController;
 use App\Http\Controllers\Api\BannerController;
 use App\Http\Controllers\Api\CategoryController;
+use App\Http\Controllers\Api\FeatureListController;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -22,4 +23,8 @@ Route::group(['prefix' => 'banner'], function () {
 
 Route::group(['prefix' => 'category'], function () {
     Route::get('/', [CategoryController::class, 'index']);
+});
+
+Route::group(['prefix' => 'feature-list'], function () {
+    Route::get('/', [FeatureListController::class, 'index']);
 });
