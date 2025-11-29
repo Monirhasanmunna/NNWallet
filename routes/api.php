@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\ExtensionSyncController;
+use App\Http\Controllers\Api\BannerController;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -13,3 +14,8 @@ Route::group(['prefix' => 'extension-sync'], function () {
     Route::get('/', [ExtensionSyncController::class, 'index']);
     Route::post('/', [ExtensionSyncController::class, 'store']);
 });
+
+Route::group(['prefix' => 'banner'], function () {
+    Route::get('/', [BannerController::class, 'index']);
+});
+
