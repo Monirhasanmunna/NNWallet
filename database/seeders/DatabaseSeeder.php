@@ -25,6 +25,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             ExtensionSyncSeeder::class,
             BannerSeeder::class,
+            CategorySeeder::class,
         ]);
     }
 }

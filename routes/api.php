@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\ExtensionSyncController;
 use App\Http\Controllers\Api\BannerController;
+use App\Http\Controllers\Api\CategoryController;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -19,3 +20,6 @@ Route::group(['prefix' => 'banner'], function () {
     Route::get('/', [BannerController::class, 'index']);
 });
 
+Route::group(['prefix' => 'category'], function () {
+    Route::get('/', [CategoryController::class, 'index']);
+});
