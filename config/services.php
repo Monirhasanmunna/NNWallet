@@ -34,5 +34,11 @@ return [
             'channel' => env('SLACK_BOT_USER_DEFAULT_CHANNEL'),
         ],
     ],
-
+    'firebase' => [
+        'project_id'     => env('FIREBASE_PROJECT_ID'),
+        'service_account'=> public_path(env('FIREBASE_CREDENTIALS')),
+    ],
+    'fcm' => [
+        'credentials' => storage_path('app/firebase/nnwallet.json'),
+    ],
 ];

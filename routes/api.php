@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\FcmTokenController;
+use App\Http\Controllers\Api\NotificationController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\ExtensionSyncController;
@@ -33,4 +34,10 @@ Route::group(['prefix' => 'feature-list'], function () {
 Route::group(['prefix' => 'token'], function () {
     Route::get('/', [FcmTokenController::class, 'index']);
     Route::post('/', [FcmTokenController::class, 'store']);
+});
+
+Route::group(['prefix' => 'notification'], function () {
+    Route::get('/', [NotificationController::class, 'index']);
+    Route::post('/', [NotificationController::class, 'store']);
+    Route::get('/{id}', [NotificationController::class, 'show']);
 });
