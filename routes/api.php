@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\FcmTokenController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\ExtensionSyncController;
@@ -27,4 +28,9 @@ Route::group(['prefix' => 'category'], function () {
 
 Route::group(['prefix' => 'feature-list'], function () {
     Route::get('/', [FeatureListController::class, 'index']);
+});
+
+Route::group(['prefix' => 'token'], function () {
+    Route::get('/', [FcmTokenController::class, 'index']);
+    Route::post('/', [FcmTokenController::class, 'store']);
 });
