@@ -96,7 +96,7 @@
         </x-modal>
 
         {{--edit modal--}}
-        <x-modal id="editCategoryModal" title="Create Category">
+        <x-modal id="editCategoryModal" title="Edit Category">
             <form method="POST" action="{{route('admin.category.update')}}" class="space-y-4">
                 @csrf
                 <div>
