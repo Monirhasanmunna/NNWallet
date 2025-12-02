@@ -49,5 +49,12 @@
             <span x-show="!sidebarCollapse" x-transition class="font-medium">Notification</span>
         </a>
         <!-- Notification Nav -->
+
+        <!-- Category Nav -->
+        <a href="{{route('admin.category.list')}}" class="flex items-center space-x-2.5 px-3 py-2 rounded-lg hover:bg-gray-100 {{ Route::is('admin.category.list') ? 'bg-gray-100 font-semibold' : '' }}">
+            <i class="fa-regular fa-bell text-xl"></i>
+            <span x-show="!sidebarCollapse" x-transition class="font-medium">Category</span>
+        </a>
+        <!-- Category Nav -->
     </nav>
 </aside>
