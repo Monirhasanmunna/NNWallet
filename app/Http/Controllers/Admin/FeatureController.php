@@ -6,21 +6,23 @@ use App\Http\Controllers\Controller;
 use App\Http\Services\Notification\FcmService;
 use App\Models\Category;
 use App\Models\FcmToken;
+use App\Models\FeatureList;
 use App\Models\Notification;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller
+class FeatureController extends Controller
 {
     /**
      * @return Factory|View
      */
     public function list(): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
     {
-        $categories = Category::orderByDesc('id')->paginate(10);
-        return view('admin.category.list', compact('categories'));
+        $categories = Category::all();
+        $features = FeatureList::orderByDesc('id')->paginate(10);
+        return view('admin.feature.list', compact('features', 'categories'));
     }
 
     /**
@@ -31,14 +33,16 @@ class CategoryController extends Controller
     {
         try {
             $request->validate([
+                'category_id' => 'required|exists:categories,id',
                 'title' => 'required',
             ]);
 
-             Category::create([
+             FeatureList::create([
+                'category_id' => $request->category_id,
                 'title' => $request->title,
             ]);
 
-            return redirect()->back()->with('success', 'Category created successfully.');
+            return redirect()->back()->with('success', 'Feature List created successfully.');
         }
         catch (\Exception $exception){
             return redirect()->back()->with('error', $exception->getMessage());
@@ -53,15 +57,17 @@ class CategoryController extends Controller
     {
         try {
             $request->validate([
-                'id' => 'required|exists:categories,id',
+                'id' => 'required|exists:feature_lists,id',
+                'category_id' => 'required|exists:categories,id',
                 'title' => 'required',
             ]);
 
-            Category::find($request->id)->update([
+            FeatureList::find($request->id)->update([
                 'title' => $request->title,
+                'category_id' => $request->category_id,
             ]);
 
-            return redirect()->back()->with('success', 'Category updated successfully.');
+            return redirect()->back()->with('success', 'Feature List updated successfully.');
         }
         catch (\Exception $exception){
             return redirect()->back()->with('error', $exception->getMessage());
@@ -75,9 +81,9 @@ class CategoryController extends Controller
     public function destroy(string $id): RedirectResponse
     {
         try {
-            $category = Category::find($id);
-            $category->delete();
-            return redirect()->back()->with('success', 'Category deleted successfully.');
+            $feature = FeatureList::find($id);
+            $feature->delete();
+            return redirect()->back()->with('success', 'Feature List deleted successfully.');
         }
         catch (\Exception $exception){
             return redirect()->back()->with('error', $exception->getMessage());

@@ -21,7 +21,7 @@ class NotificationController extends Controller
      */
     public function list(): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
     {
-        $notifications = Notification::orderByDesc('id')->paginate(20);
+        $notifications = Notification::orderByDesc('id')->paginate(10);
         $notificationTypes = notificationType();
 
         return view('admin.notification.list', compact('notifications', 'notificationTypes'));

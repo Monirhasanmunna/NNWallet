@@ -52,8 +52,15 @@
 
         <!-- Category Nav -->
         <a href="{{route('admin.category.list')}}" class="flex items-center space-x-2.5 px-3 py-2 rounded-lg hover:bg-gray-100 {{ Route::is('admin.category.list') ? 'bg-gray-100 font-semibold' : '' }}">
-            <i class="fa-regular fa-bell text-xl"></i>
+            <i class="fa-solid fa-table-cells-large text-xl"></i>
             <span x-show="!sidebarCollapse" x-transition class="font-medium">Category</span>
+        </a>
+        <!-- Category Nav -->
+
+        <!-- Category Nav -->
+        <a href="{{route('admin.feature.list')}}" class="flex items-center space-x-2.5 px-3 py-2 rounded-lg hover:bg-gray-100 {{ Route::is('admin.feature.list') ? 'bg-gray-100 font-semibold' : '' }}">
+            <i class="fa-brands fa-delicious text-xl"></i>
+            <span x-show="!sidebarCollapse" x-transition class="font-medium">Feature</span>
         </a>
         <!-- Category Nav -->
     </nav>
