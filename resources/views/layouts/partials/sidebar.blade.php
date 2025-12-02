@@ -1,7 +1,7 @@
 <aside class="fixed inset-y-0 left-0 z-40 bg-white shadow-xl border-r
                transform transition-all duration-300 ease-in-out
                flex flex-col" :class="{
-            'w-64': !sidebarCollapse, 
+            'w-64': !sidebarCollapse,
             'w-16': sidebarCollapse,
             '-translate-x-full': !sidebarOpen && window.innerWidth < 1024,
             'translate-x-0': sidebarOpen || window.innerWidth >= 1024
@@ -54,7 +54,7 @@
                 class="flex items-center w-full space-x-3 px-3 py-2 rounded-lg hover:bg-gray-100">
 
                 <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a4 4 0 00-3-3.87M9 20H4v-2a4 4 0 013-3.87m0 0a4 
+                    <path stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a4 4 0 00-3-3.87M9 20H4v-2a4 4 0 013-3.87m0 0a4
                                  4 0 118 0m-8 0v1m8-1v1" />
                 </svg>
 
@@ -75,5 +75,13 @@
                 <a href="#" class="block px-3 py-2 rounded hover:bg-gray-100">Add User</a>
             </div>
         </div>
+        <!-- Users with Dropdown -->
+
+        <!-- Notification Nav -->
+        <a href="{{route('admin.notification.list')}}" class="flex items-center space-x-2.5 px-3 py-2 rounded-lg hover:bg-gray-100 {{ Route::is('admin.notification.list') ? 'bg-gray-100 font-semibold' : '' }}">
+            <i class="fa-regular fa-bell text-xl"></i>
+            <span x-show="!sidebarCollapse" x-transition class="font-medium">Notification</span>
+        </a>
+        <!-- Notification Nav -->
     </nav>
 </aside>

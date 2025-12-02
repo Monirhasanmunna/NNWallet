@@ -7,17 +7,15 @@
     </button>
 
     <!-- Breadcrumb -->
-    <div class="font-medium text-gray-700">
-        Dashboard / Overview
-    </div>
+    <div class="font-medium text-gray-700"> </div>
 
     <!-- Profile Actions -->
     <div class="relative" x-data="{ open:false }">
 
         <button @click="open = !open" class="w-10 h-10 rounded-full flex items-center justify-center hover:bg-gray-100">
             <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5.121 17.804A13.937 13.937 0 0112 15c2.314 
-                                 0 4.47.523 6.379 1.45M15 10a3 3 0 
+                <path stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5.121 17.804A13.937 13.937 0 0112 15c2.314
+                                 0 4.47.523 6.379 1.45M15 10a3 3 0
                                  11-6 0 3 3 0 016 0z" />
             </svg>
         </button>
