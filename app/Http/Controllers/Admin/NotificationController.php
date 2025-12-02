@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Services\Notification\FcmService;
+use App\Models\FcmToken;
 use App\Models\Notification;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -11,6 +13,8 @@ use Illuminate\Http\Request;
 
 class NotificationController extends Controller
 {
+
+    public function __construct(private readonly FcmService $fcmService){}
 
     /**
      * @return Factory|View
@@ -36,11 +40,15 @@ class NotificationController extends Controller
                 'message' => 'required',
             ]);
 
-            Notification::create([
+            $notification = Notification::create([
                 'title' => $request->title,
                 'type' => $request->type,
                 'message' => $request->message,
             ]);
+
+            $tokens = FcmToken::select('token')->get();
+            $tokens = array_column($tokens->toArray(), 'token');
+            $this->fcmService->sendToMany($tokens, $notification->title, $notification->message, [$notification->type]);
 
             return redirect()->back()->with('success', 'Notification created successfully.');
         }
