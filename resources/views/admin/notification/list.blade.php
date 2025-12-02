@@ -79,6 +79,10 @@
             </table>
         </div>
 
+        <div class="mt-4">
+            {{ $notifications->links() }}
+        </div>
+
         <x-modal id="createNotificationModal" title="Create Notification">
             <form method="POST" action="{{route('admin.notification.store')}}" class="space-y-4">
                 @csrf
