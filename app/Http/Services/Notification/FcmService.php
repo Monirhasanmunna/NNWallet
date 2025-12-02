@@ -69,7 +69,7 @@ class FcmService
                         'sound' => 'default',
                     ],
                 ],
-                'data' => $data,
+                'data' => $this->sanitizeData($data),
             ]
         ];
 
@@ -79,7 +79,7 @@ class FcmService
             ->acceptJson()
             ->post($endpoint, $payload);
 
-//        Log::info('FCM Response: ' . $response->body());
+        Log::info('FCM Response: ' . $response->body());
 
         return $response->json();
     }
