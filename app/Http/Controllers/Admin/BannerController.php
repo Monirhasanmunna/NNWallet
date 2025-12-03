@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Banner;
-use App\Models\Category;
 use App\Traits\FileSaver;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
