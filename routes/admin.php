@@ -2,11 +2,14 @@
 
 use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\FeatureController;
 use App\Http\Controllers\Admin\NotificationController;
 use Illuminate\Support\Facades\Route;
 
 Route::group(['as' => 'admin.', 'middleware' => ['auth', 'verified']], function () {
+    Route::get('/dashboard', DashboardController::class)->name('dashboard');
+
     Route::group(['as' => 'notification.', 'prefix' => 'notification'], function () {
         Route::get('/', [NotificationController::class, 'list'])->name('list');
         Route::post('/', [NotificationController::class, 'store'])->name('store');

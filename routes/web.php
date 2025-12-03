@@ -7,10 +7,6 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-Route::get('/dashboard', function () {
-    return view('admin.dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
 Route::get('/privacy-policy', function () {
     return view('privacy-policy');
 });

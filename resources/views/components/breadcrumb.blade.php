@@ -4,7 +4,7 @@
 
 <nav class="flex items-center text-sm text-gray-600 space-x-2">
     <!-- Home Link -->
-    <a href="{{ route('dashboard')}}" class="hover:text-gray-800 font-medium">Dashboard</a>
+    <a href="{{ route('admin.dashboard')}}" class="hover:text-gray-800 font-medium">Dashboard</a>
 
     @foreach ($items as $item)
         <!-- Separator -->

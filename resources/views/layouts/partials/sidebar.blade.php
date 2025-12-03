@@ -26,7 +26,7 @@
     <nav class="p-3 flex-1 space-y-1 text-gray-700">
 
         <!-- Dashboard -->
-        <a href="{{route('dashboard')}}" class="flex items-center space-x-3 px-3 py-2 rounded-lg hover:bg-gray-100">
+        <a href="{{route('admin.dashboard')}}" class="flex items-center space-x-3 px-3 py-2 rounded-lg hover:bg-gray-100 {{ Route::is('admin.dashboard') ? 'bg-gray-100 font-semibold' : '' }}">
             <i class="fa-regular fa-house text-xl"></i>
             <span x-show="!sidebarCollapse" x-transition class="font-medium">Dashboard</span>
         </a>
