@@ -69,8 +69,13 @@ class BannerController extends Controller
 
            $banner->update([
                 'link' => $request->link,
-                'image' => $imageName,
-            ]);
+           ]);
+
+            if($imageName){
+                $banner->update([
+                    'image' => $imageName,
+                ]);
+            }
 
             return redirect()->back()->with('success', 'Banner updated successfully.');
         }

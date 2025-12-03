@@ -11,26 +11,14 @@
     <div class="h-16 flex items-center justify-between px-4 border-b">
 
         <!-- LOGO (hidden when collapsed) -->
-        <span class="text-xl font-bold text-indigo-600" x-show="!sidebarCollapse" x-transition>
-            MyAdmin
-        </span>
-
-        <!-- Icon logo when collapsed -->
-        <span x-show="sidebarCollapse" x-transition>
-            <svg class="w-8 h-8 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 6v6l4 2" />
-            </svg>
+        <span class="text-xl text-center grow font-bold text-indigo-600" x-show="!sidebarCollapse" x-transition>
+            NN Wallet
         </span>
 
         <!-- Collapse Button (desktop only) -->
         <button @click="sidebarCollapse = !sidebarCollapse"
             class="hidden lg:flex items-center justify-center w-8 h-8 rounded hover:bg-gray-100">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path x-show="!sidebarCollapse" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    d="M20 12H4" />
-                <path x-show="sidebarCollapse" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    d="M4 12h16" />
-            </svg>
+            <i class="fa-solid fa-bars text-xl"></i>
         </button>
     </div>
 
@@ -66,7 +54,7 @@
 
         <!-- Banner Nav -->
         <a href="{{route('admin.banner.list')}}" class="flex items-center space-x-2.5 px-3 py-2 rounded-lg hover:bg-gray-100 {{ Route::is('admin.banner.list') ? 'bg-gray-100 font-semibold' : '' }}">
-            <i class="fa-brands fa-delicious text-xl"></i>
+            <i class="fa-solid fa-images text-xl"></i>
             <span x-show="!sidebarCollapse" x-transition class="font-medium">Banner</span>
         </a>
         <!-- Banner Nav -->
