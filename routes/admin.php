@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\FeatureController;
 use App\Http\Controllers\Admin\NotificationController;
@@ -24,5 +25,12 @@ Route::group(['as' => 'admin.', 'middleware' => ['auth', 'verified']], function 
         Route::post('/', [FeatureController::class, 'store'])->name('store');
         Route::post('/update', [FeatureController::class, 'update'])->name('update');
         Route::delete('/delete/{id}', [FeatureController::class, 'destroy'])->name('delete');
+    });
+
+    Route::group(['as' => 'banner.', 'prefix' => 'banner'], function () {
+        Route::get('/', [BannerController::class, 'list'])->name('list');
+        Route::post('/', [BannerController::class, 'store'])->name('store');
+        Route::post('/update', [BannerController::class, 'update'])->name('update');
+        Route::delete('/delete/{id}', [BannerController::class, 'destroy'])->name('delete');
     });
 });

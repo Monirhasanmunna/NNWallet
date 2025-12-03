@@ -7,7 +7,7 @@
         </div>
 
         <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mt-10 mb-4">
-            <h2 class="text-xl font-semibold text-gray-800">Category</h2>
+            <h2 class="text-xl font-semibold text-gray-800">Category List</h2>
 
             <button  onclick="openModal('createCategoryModal')"  class="mt-3 sm:mt-0 inline-flex items-center px-3 py-2 gap-x-1 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition">
                 <i class="fa-solid fa-plus"></i>

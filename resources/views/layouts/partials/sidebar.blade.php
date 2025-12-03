@@ -63,5 +63,12 @@
             <span x-show="!sidebarCollapse" x-transition class="font-medium">Feature</span>
         </a>
         <!-- Category Nav -->
+
+        <!-- Banner Nav -->
+        <a href="{{route('admin.banner.list')}}" class="flex items-center space-x-2.5 px-3 py-2 rounded-lg hover:bg-gray-100 {{ Route::is('admin.banner.list') ? 'bg-gray-100 font-semibold' : '' }}">
+            <i class="fa-brands fa-delicious text-xl"></i>
+            <span x-show="!sidebarCollapse" x-transition class="font-medium">Banner</span>
+        </a>
+        <!-- Banner Nav -->
     </nav>
 </aside>
